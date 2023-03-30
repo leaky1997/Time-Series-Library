@@ -135,3 +135,13 @@ dmypy.json
 /temp.sh
 
 .idea
+
+*.csv
+*.ts
+*.npy
+*.pkl
+*.pdf
+*.pth
+*.npz
+*.DS_Store
+*.xlsx

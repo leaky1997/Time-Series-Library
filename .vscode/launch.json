@@ -1,0 +1,38 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "python": "/home/richie_thu/miniconda3/envs/TS/bin/python",
+            "args": 
+                ["--task_name","long_term_forecast", //short_term_forecast
+                "--is_training","1", //CALCE 
+                // "--root_path","./dataset/electricity/",
+                // "--data_path", "electricity.csv",
+                "--model_id","ECL_96_96" ,
+                "--model","PatchTST", //Demon TimesNet
+                "--data","custom",
+                "--e_layers","3",
+                "--batch_size","16",
+                "--d_model","500",
+                "--d_ff","32",
+                "--top_k","3",
+                "--des","Exp",
+                "--itr","1",
+                "--learning_rate","0.001",
+                "--train_epochs","30",    
+                "--patience","10"                     
+
+                ]
+        }
+    ]
+}

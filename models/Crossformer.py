@@ -77,9 +77,9 @@ class Model(nn.Module):
 
 
     def forecast(self, x_enc, x_mark_enc, x_dec, x_mark_dec):
-        x_enc, n_vars = self.enc_value_embedding(x_enc.permute(0, 2, 1))
-        x_enc = rearrange(x_enc, '(b d) seg_num d_model -> b d seg_num d_model', d = n_vars)
-        x_enc += self.enc_pos_embedding
+        x_enc, n_vars = self.enc_value_embedding(x_enc.permute(0, 2, 1)) # [(b, l, d) -> (b, d, l)]  -> [(b*d, N, P) -> (b*d, N, d_model)]
+        x_enc = rearrange(x_enc, '(b d) seg_num d_model -> b d seg_num d_model', d = n_vars) # 和embdeding存在冗余操作 d 就是ts_d 标记不清
+        x_enc += self.enc_pos_embedding # dose it work?
         x_enc = self.pre_norm(x_enc)
         enc_out, attns = self.encoder(x_enc)
 

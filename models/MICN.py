@@ -5,6 +5,7 @@ from layers.Autoformer_EncDec import series_decomp, series_decomp_multi
 import torch.nn.functional as F
 
 
+
 class MIC(nn.Module):
     """
     MIC layer to extract local and global features
@@ -217,3 +218,6 @@ class Model(nn.Module):
             dec_out = self.classification(x_enc, x_mark_enc)
             return dec_out  # [B, N]
         return None
+def test_MICN():
+    # test MICN model  (long_term_forecast)
+    # give the input data and the model will output the prediction

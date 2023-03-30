@@ -8,6 +8,7 @@ from exp.exp_anomaly_detection import Exp_Anomaly_Detection
 from exp.exp_classification import Exp_Classification
 import random
 import numpy as np
+# test the parser
 
 fix_seed = 2021
 random.seed(fix_seed)
@@ -21,12 +22,12 @@ parser.add_argument('--task_name', type=str, required=True, default='long_term_f
                     help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
 parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-parser.add_argument('--model', type=str, required=True, default='Autoformer',
-                    help='model name, options: [Autoformer, Transformer, TimesNet]')
+parser.add_argument('--model', type=str, required=True, default='PatchTST',
+                    help='model name, options: [Autoformer, Transformer, TimesNet,TimesNet]')
 
 # data loader
-parser.add_argument('--data', type=str, required=True, default='ETTm1', help='dataset type')
-parser.add_argument('--root_path', type=str, default='./data/ETT/', help='root path of the data file')
+parser.add_argument('--data', type=str, required=True, default='ETTh1', help='dataset type')
+parser.add_argument('--root_path', type=str, default='./dataset/ETT-small/', help='root path of the data file')
 parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
 parser.add_argument('--features', type=str, default='M',
                     help='forecasting task, options:[M, S, MS]; M:multivariate predict multivariate, S:univariate predict univariate, MS:multivariate predict univariate')
